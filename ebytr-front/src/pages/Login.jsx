@@ -1,8 +1,9 @@
 import React from 'react';
+import { LoginForms } from '../components';
 
 function Login() {
   return (
-    <h2>Login</h2>
+    <LoginForms />
   );
 }
 
