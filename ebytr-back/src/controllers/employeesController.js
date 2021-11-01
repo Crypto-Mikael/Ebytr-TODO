@@ -33,9 +33,7 @@ const loginToken = async (req, res) => {
 
 const registerEmployee = async (req, res) => {
   const { name, email, password } = req.body;
-
   const employee = await employeesService.registerEmployee(name, email, password);
-
   return res.status(200).json(employee);
 };
 

@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function SignInForms() {
   const [email, setEmail] = useState('');
@@ -46,6 +47,16 @@ function SignInForms() {
         >
           SignIn
         </button>
+      </div>
+
+      <div>
+        <Link to="signup">
+          <button
+            type="button"
+          >
+            SignUp
+          </button>
+        </Link>
       </div>
     </form>
   );

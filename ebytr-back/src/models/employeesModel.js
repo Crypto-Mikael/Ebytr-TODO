@@ -23,8 +23,16 @@ const findEmployeeByEmail = async (email) => {
 const registerEmployee = async (name, email, password) => {
   const db = await connection();
   const date = await new Date(Date.now()).toISOString();
-  await db.collection(COLLECTION_NAME)
+  const inserted = await db.collection(COLLECTION_NAME)
   .insertOne({name, email, password, role: 'user', date });
+  return { 
+    _id: inserted.insertedId, 
+    name, 
+    email, 
+    password, 
+    role: 'user', 
+    date 
+  };
 };
 
 module.exports = {
