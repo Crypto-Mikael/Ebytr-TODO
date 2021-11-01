@@ -11,9 +11,17 @@ const getEmployeeById = async (id) => {
   const employee = await employeesModel.getEmployeeById(id);
   if (!employee || employee.length === 0) return { message: 'employee not found' };
   return employee;
-}
+};
+
+const findEmployeeByEmail = async (email) => {
+  const employee = await employeesModel.findEmployeeByEmail(email);
+  console.log(employee)
+  if (!employee || employee.length === 0) return { message: 'employee not found' };
+  return employee;
+};
 
 module.exports = {
   getAllEmployees,
   getEmployeeById,
+  findEmployeeByEmail,
 };

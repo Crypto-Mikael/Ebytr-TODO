@@ -15,7 +15,13 @@ const getEmployeeById = async (id) => {
   return employee;
 }
 
+const findEmployeeByEmail = async (email) => {
+  const db = await connection();
+  return db.collection(COLLECTION_NAME).findOne({ email });
+};
+
 module.exports = {
+  findEmployeeByEmail,
   getAllEmployees,
   getEmployeeById,
 };
