@@ -7,7 +7,8 @@ const getAllEmployees = async (_req, res) => {
   return res.status(200).json(employees);
 };
 
-const getEmployeeById = async (req, res) => {
+const getEmployeeById = async (req
+  , res) => {
   const { id } = req.params;
   const employee = await employeesService.getEmployeeById(id);
   return res.status(200).json(employee);
