@@ -15,13 +15,24 @@ const getEmployeeById = async (id) => {
 
 const findEmployeeByEmail = async (email) => {
   const employee = await employeesModel.findEmployeeByEmail(email);
-  console.log(employee)
   if (!employee || employee.length === 0) return { message: 'employee not found' };
   return employee;
+};
+
+const registerEmployee = async (name, email, password) => {
+  const messageInvalid = { message: 'user name, email or password invalid' } ;
+  const checkEmail = await employeesModel.findEmployeeByEmail(email);
+  if (!name || !email || !password) return messageInvalid;
+  if (checkEmail) return messageInvalid;
+  if (!email.includes('@') || !email.includes('.com')) return messageInvalid;
+
+  const created = await employeesModel.registerEmployee(name, email, password);
+  return created;
 };
 
 module.exports = {
   getAllEmployees,
   getEmployeeById,
   findEmployeeByEmail,
+  registerEmployee,
 };

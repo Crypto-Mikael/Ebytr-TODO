@@ -1,0 +1,10 @@
+
+use('Ebytr');
+
+db.employees.insertMany([
+  { "name": "admin", "email": "admin@mern.com", "password": "12345678", "role": "admin", "date": new Date(Date.now()).toISOString() },
+  { 'name': 'Mongodb', 'email': 'mongodb@mern.com', 'password': '12345678', 'role': 'user', 'date': new Date('2009-02-11T00:00:00Z') },
+  { 'name': 'NodeJs', 'email': 'nodejs@mern.com', 'password': '12345678', 'role': 'user', 'date': new Date('2009-05-27T00:00:00Z') },
+  { 'name': 'Express', 'email': 'express@mern.com', 'password': '12345678', 'role': 'user', 'date': new Date('2010-11-16T00:00:00Z') },
+  { 'name': 'React', 'email': 'react@mern.com', 'password': '12345678', 'role': 'user', 'date': new Date('2013-05-29T00:00:00Z') },
+]);
