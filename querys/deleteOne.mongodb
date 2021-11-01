@@ -1,0 +1,3 @@
+use('Ebytr');
+
+db.employees.deleteOne({ "email": "robertinho@gmail.com" });
