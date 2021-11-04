@@ -18,11 +18,12 @@ function RegisteForm() {
 
   return (
     <form>
-      <div>
-        <label htmlFor="name">
+      <div className="col-mb-3">
+        <label htmlFor="name" className="form-label">
           Name
           <input
             type="name"
+            className="form-control form-group"
             id="name"
             placeholder="Name"
             value={ name }
@@ -30,11 +31,12 @@ function RegisteForm() {
           />
         </label>
       </div>
-      <div>
-        <label htmlFor="email">
+      <div className="col-mb-3">
+        <label htmlFor="email" className="form-label">
           Email
           <input
             type="email"
+            className="form-control form-group"
             id="email"
             placeholder="Email"
             value={ email }
@@ -42,12 +44,13 @@ function RegisteForm() {
           />
         </label>
       </div>
-      <div>
+      <div className="col-mb-3">
         <label htmlFor="password">
           Password
           <input
             type="password"
             id="password"
+            className="form-control form-group"
             placeholder="Password"
             value={ password }
             onChange={ ({ target }) => setPassword(target.value) }
@@ -57,9 +60,10 @@ function RegisteForm() {
 
       { errorMenssage ? <h3>{errorMenssage}</h3> : null }
 
-      <div>
+      <div className="d-inline-mt gap-6 mt-2">
         <button
           disabled={ !email || !password || !name }
+          className="btn btn-info btn-inline"
           type="button"
           onClick={ () => onClick() }
         >
@@ -67,12 +71,13 @@ function RegisteForm() {
         </button>
       </div>
 
-      <div>
+      <div className="d-inline-mt gap-6">
         <Link to="/">
           <button
+            className="btn btn-danger btn-inline"
             type="button"
           >
-            Back
+            Goback
           </button>
         </Link>
       </div>

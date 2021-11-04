@@ -3,7 +3,13 @@ import { SignUpForm } from '../components';
 
 function SignUp() {
   return (
-    <SignUpForm />
+    <div>
+      <div className="container">
+        <div className="form-div">
+          <SignUpForm />
+        </div>
+      </div>
+    </div>
   );
 }
 

@@ -58,10 +58,10 @@ const editEmployeeTask = async (id, text, status) => {
   return task;
 };
 
-const deleteEmployeeTask = async (id) => {
+const deleteEmployeeTask = async (id, email) => {
   const messageInvalid = { message: 'task is invalid' };
-  if (!id) return messageInvalid;
-  const task = await employeesModel.deleteEmployeeTask(id);
+  if (!id || !email) return messageInvalid;
+  const task = await employeesModel.deleteEmployeeTask(id, email);
   return task;
 }
 

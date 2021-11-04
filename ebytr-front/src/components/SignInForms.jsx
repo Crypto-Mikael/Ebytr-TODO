@@ -18,11 +18,12 @@ function SignInForms() {
 
   return (
     <form>
-      <div>
-        <label htmlFor="email">
+      <div className="col-mb-3">
+        <label htmlFor="email" className="form-label">
           Email
           <input
             type="email"
+            className="form-control form-group"
             id="email"
             placeholder="Email"
             value={ email }
@@ -30,11 +31,12 @@ function SignInForms() {
           />
         </label>
       </div>
-      <div>
-        <label htmlFor="password">
+      <div className="col-mb-3">
+        <label htmlFor="password" className="form-label">
           Password
           <input
             type="password"
+            className="form-control form-group"
             id="password"
             placeholder="Password"
             value={ password }
@@ -43,19 +45,21 @@ function SignInForms() {
         </label>
       </div>
 
-      <div>
+      <div className="d-inline gap-6 px-1">
         <button
           type="button"
+          className="btn btn-info btn-block"
           onClick={ () => ValidateLogin() }
         >
           SignIn
         </button>
       </div>
 
-      <div>
+      <div className="d-inline gap-6 px-2">
         <Link to="signup">
           <button
             type="button"
+            className="btn btn-warning btn-block"
           >
             SignUp
           </button>

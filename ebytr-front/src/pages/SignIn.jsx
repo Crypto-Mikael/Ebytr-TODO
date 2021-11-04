@@ -3,7 +3,13 @@ import { SignInForms } from '../components';
 
 function SignIn() {
   return (
-    <SignInForms />
+    <div>
+      <div className="container">
+        <div className="form-div">
+          <SignInForms />
+        </div>
+      </div>
+    </div>
   );
 }
 

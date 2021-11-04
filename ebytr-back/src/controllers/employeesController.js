@@ -49,7 +49,6 @@ const registerEmployee = async (req, res) => {
 
 const setEmployeeTask = async (req, res) => {
   const { id } = req.params;
-  console.log(id)
   const { text, status } = req.body;
   const task = await employeesService.setEmployeeTask(id, text, status);
   return res.status(200).json(task);
@@ -75,7 +74,8 @@ const editEmployeeTask = async (req, res) => {
 
 const deleteEmployeeTask = async (req, res) => {
   const { id } = req.params;
-  const task = await employeesService.deleteEmployeeTask(id);
+  const { email } = req.body;
+  const task = await employeesService.deleteEmployeeTask(id, email);
   return res.status(200).json(task);
 }
 
