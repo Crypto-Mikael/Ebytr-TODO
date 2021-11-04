@@ -1,15 +1,18 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 function SignInForms() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [successesLogIn, setSuccessesLogIn] = useState(false);
 
   const ValidateLogin = async () => {
     const data = { email, password };
     const validation = await axios.post('http://localhost:4000/employees/login', data);
+    localStorage.setItem('token', validation.data.token);
+    setSuccessesLogIn(true);
     return validation;
   };
 
@@ -58,6 +61,8 @@ function SignInForms() {
           </button>
         </Link>
       </div>
+
+      { successesLogIn && <Redirect to="/tasks" /> }
     </form>
   );
 }

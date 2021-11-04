@@ -10,10 +10,9 @@ const tokenValidation = async (req, res, next) => {
   const decodedUser = jwt.verify(token, secret);
 
   const user = await usersServices.findEmployeeByEmail(decodedUser.email);
-
   if (!user) return res.status(401).json({ message: 'jwt malformed'});
 
-  req.name = name;
+  req.user = user;
   next();
 };
 
