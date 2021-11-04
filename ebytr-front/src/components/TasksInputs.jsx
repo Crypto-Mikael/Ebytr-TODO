@@ -1,7 +1,7 @@
-/* eslint-disable react/jsx-max-depth */
 /* eslint-disable react/jsx-closing-tag-location */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Task } from '.';
 
 function Tasks() {
   const [userInfo, setUserInfo] = useState('');
@@ -29,14 +29,6 @@ function Tasks() {
     setUpdateList(false);
   };
 
-  const removeTask = async (id) => {
-    const { email } = userInfo;
-    const data = { email };
-    setUpdateList(true);
-    await axios.put(`http://localhost:4000/employees/deleteTask/${id}`, data);
-    setUpdateList(false);
-  };
-
   return (
     userInfo && <>
       <section className="col-mb-3">
@@ -59,55 +51,14 @@ function Tasks() {
         </div>
       </section>
       <section>
-        {userInfo && userInfo.tasks.map((task) => (
-          <div className="card" key={ task.id } style={ { marginTop: '1rem' } }>
-            <div
-              className="card-header"
-              style={ {
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              } }
-            >
-              <h5
-                className="card-title"
-                style={ { justifyContent: 'start', margin: '0' } }
-              >
-                {task.text}
-              </h5>
-              <button
-                type="button"
-                onClick={ () => removeTask(task.id) }
-                className="btn btn-danger"
-              >
-                Remove
-              </button>
-            </div>
-            <div className="card-body">
-              <div
-                className="form-check form-switch"
-                style={ {
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                } }
-              >
-                <label
-                  className="form-check-label"
-                  htmlFor="flexSwitchCheckDefault"
-                >
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    role="switch"
-                    id="flexSwitchCheckDefault"
-                  />
-                  <h5 className="card-title">{task.status}</h5>
-                </label>
-              </div>
-            </div>
-          </div>
-        ))}
+        { userInfo && userInfo.tasks.map((task) => (
+          <Task
+            key={ task.id }
+            task={ task }
+            userInfo={ userInfo }
+            setUpdateList={ setUpdateList }
+          />
+        )) }
       </section>
     </>
   );
