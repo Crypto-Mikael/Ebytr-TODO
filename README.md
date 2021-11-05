@@ -1,7 +1,7 @@
 <h1 align='center'>Ebytr</h1>
 <div align='center'>
 
-<p>O projeto é uma To Do list, onde se pode criar, deletar, editar, registrar usuário, mudar o status e logar. Foi construido toda API onde vai receber os dados, com Node.js e Express para fazer a ligação com o Front, usando o Axios para fazer as requisições. O projeto foi estruturado com testes unitarios e ainda está em andamento</p>
+<p>O projeto é uma To Do list, onde se pode criar, deletar, editar, registrar usuário, mudar o status e logar. Foi construido toda API onde vai receber os dados, com Node.js e Express para fazer a ligação com o Front, usando o Axios para fazer as requisições.</p>
 </div>
 
 <h2 align='center'>Bibliotecas / Linguagens</h2>
@@ -10,17 +10,12 @@
   <li><a href="https://pt-br.reactjs.org/">ReactJS</a></li>
     <ul>
       <li><a href="https://reactrouter.com/web/guides/quick-start">React Router Dom</a></li>
-      <li><a href="https://www.npmjs.com/package/yup">Yup</a></li>
-      <li><a href="https://date-fns.org/">Date-fns</a></li>
-      <li><a href="https://formik.org/docs/overview">Formik</a></li>
-      <li><a href="https://react-icons.github.io/react-icons/">React-Icons</a></li>
       <li><a href="https://axios-http.com/docs/intro">Axios</a></li>
     </ul>
   <li><a href="https://nodejs.org/en/">NodeJS</a></li>
     <ul>
       <li><a href="https://www.npmjs.com/package/dotenv">Dotenv</a></li>
       <li><a href="https://www.npmjs.com/package/cors">Cors</a></li>
-      <li><a href="https://www.npmjs.com/package/joi">Joi</a></li>
       <li><a href="https://expressjs.com/pt-br/">Express</a></li>
       <li><a href="https://www.npmjs.com/package/jsonwebtoken">Jsonwebtoken</a></li>
       <li><a href="https://www.npmjs.com/package/nodemon">Nodemon</a></li>
@@ -106,3 +101,4 @@ $ yarn start
 
 ```
 ---
+README EXPIRADO: https://github.com/Gabriel-sys-hub/Ebytr
