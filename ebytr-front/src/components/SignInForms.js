@@ -66,6 +66,7 @@ function SignInForms() {
           type="button"
           className="btn btn-info"
           onClick={ () => ValidateLogin() }
+          data-testid="button-signin"
           style={ {
             marginRight: '1rem',
           } }
@@ -79,6 +80,7 @@ function SignInForms() {
           <button
             type="button"
             className="btn btn-warning"
+            data-testid="button-signup"
           >
             SignUp
           </button>

@@ -74,6 +74,7 @@ function RegisteForm() {
           disabled={ !email || !password || !name }
           className="btn btn-info btn-inline"
           type="button"
+          data-testid="button-signup"
           style={ {
             marginTop: '1rem',
             marginRight: '1rem',
