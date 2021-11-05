@@ -45,7 +45,7 @@
 $ git clone git@github.com:Gabriel-sys-hub/Ebytr.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd server
+$ cd ebtr-back
 
 # Instale as dependências
 $ npm install
@@ -61,7 +61,7 @@ $ npm run dev
 $ git clone git@github.com:Gabriel-sys-hub/Ebytr.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd server
+$ cd ebtr-back
 
 # Instale as dependências
 $ yarn add
@@ -77,7 +77,7 @@ $ yarn dev
 ```bash
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd client
+$ cd ebtr-front
 
 # Instale as dependências
 $ npm install
@@ -91,7 +91,7 @@ $ npm start
 ```bash
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd client
+$ cd ebtr-front
 
 # Instale as dependências
 $ yarn add
