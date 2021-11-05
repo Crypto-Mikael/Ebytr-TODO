@@ -1,8 +1,11 @@
 <h1 align='center'>Ebytr</h1>
 <div align='center'>
-
+  
+<image src="https://user-images.githubusercontent.com/80548535/140463810-83d1e771-6ab7-40b1-bdcf-8898f331e3b2.gif">
+  
 <p>O projeto é uma To Do list, onde se pode criar, deletar, editar, registrar usuário, mudar o status e logar. Foi construido toda API onde vai receber os dados, com Node.js e Express para fazer a ligação com o Front, usando o Axios para fazer as requisições.</p>
 </div>
+
 
 <h2 align='center'>Bibliotecas / Linguagens</h2>
 
