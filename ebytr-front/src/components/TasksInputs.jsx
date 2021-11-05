@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-closing-tag-location */
 import React, { useEffect, useState } from 'react';
+import { Redirect } from 'react-router';
 import axios from 'axios';
 import { Task } from '.';
 
@@ -7,6 +8,7 @@ function Tasks() {
   const [userInfo, setUserInfo] = useState('');
   const [inputTask, setInputTask] = useState('');
   const [updateList, setUpdateList] = useState(false);
+  const [redirectToHome, setRedirectToHome] = useState(false);
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -22,11 +24,16 @@ function Tasks() {
     const id = Object.values(userInfo)[0];
     const data = {
       text: inputTask,
-      status: 'In-progress',
+      status: 'pendente',
     };
     setUpdateList(true);
     await axios.post(`http://localhost:4000/employees/setTask/${id}`, data);
     setUpdateList(false);
+  };
+
+  const Loggout = () => {
+    localStorage.removeItem('token');
+    setRedirectToHome(true);
   };
 
   return (
@@ -57,9 +64,21 @@ function Tasks() {
             task={ task }
             userInfo={ userInfo }
             setUpdateList={ setUpdateList }
+            taskStatus={ task.status }
           />
         )) }
       </section>
+      <button
+        type="button"
+        onClick={ () => Loggout() }
+        className="btn btn-danger btn-sm"
+        style={ {
+          marginTop: '1rem',
+        } }
+      >
+        Logout
+      </button>
+      {redirectToHome && <Redirect to="/" /> }
     </>
   );
 }

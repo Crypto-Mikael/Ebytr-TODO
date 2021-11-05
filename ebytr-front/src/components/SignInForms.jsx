@@ -17,7 +17,14 @@ function SignInForms() {
   };
 
   return (
-    <form>
+    <form
+      style={ {
+        border: '1px solid',
+        borderRadius: '5px',
+        borderWidth: '2px',
+        padding: '20px',
+      } }
+    >
       <div className="col-mb-3">
         <label htmlFor="email" className="form-label">
           Email
@@ -31,6 +38,7 @@ function SignInForms() {
           />
         </label>
       </div>
+
       <div className="col-mb-3">
         <label htmlFor="password" className="form-label">
           Password
@@ -45,27 +53,29 @@ function SignInForms() {
         </label>
       </div>
 
-      <div className="d-inline gap-6 px-1">
+      <div className="d-grid gap-6 d-md-inline mr-3">
         <button
           type="button"
-          className="btn btn-info btn-block"
+          className="btn btn-info"
           onClick={ () => ValidateLogin() }
+          style={ {
+            marginRight: '1rem',
+          } }
         >
           SignIn
         </button>
       </div>
 
-      <div className="d-inline gap-6 px-2">
+      <div className="d-grid gap-6 d-md-inline">
         <Link to="signup">
           <button
             type="button"
-            className="btn btn-warning btn-block"
+            className="btn btn-warning"
           >
             SignUp
           </button>
         </Link>
       </div>
-
       { successesLogIn && <Redirect to="/tasks" /> }
     </form>
   );
