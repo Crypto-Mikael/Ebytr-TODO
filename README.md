@@ -32,9 +32,6 @@
   <li>Fazer login;</li>
   <li>Visualizar a lista de tarefas;</li>
   <li>Inserir uma nova tarefa na lista;</li>
-    <ul>
-      <li>Esta lista deve ser ordenável por ordem alfabética, data de criação ou por status;</li>
-    </ul>
   <li>Remover uma tarefa da lista;</li>
   <li>Atualizar uma tarefa da lista;</li>
   <li>A tarefa deve possuir um status editável: pendente, em andamento ou pronto;</li>
