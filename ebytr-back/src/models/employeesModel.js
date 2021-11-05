@@ -92,11 +92,11 @@ const editEmployeeTask = async (id, text, status) => {
   return task;
 };
 
-const deleteEmployeeTask = async (id) => {
+const deleteEmployeeTask = async (id, email) => {
   const db = await connection();
   const task = { message: 'task removed!' };
   await db.collection(COLLECTION_NAME)
-  .updateOne({}, { $pull: { tasks: { id: ObjectId(id) } } }, { multi:true });
+  .updateOne({ email }, { $pull: { tasks: { id: ObjectId(id) } } }, { multi:true });
   return task;
 };
 

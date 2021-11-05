@@ -17,12 +17,22 @@ function RegisteForm() {
   };
 
   return (
-    <form>
-      <div>
-        <label htmlFor="name">
+    <form
+      style={ {
+        border: '1px solid',
+        boxShadow: '0px 0px 10px 5px #f5f5f5',
+        borderRadius: '5px',
+        borderWidth: '2px',
+        backgroundColor: '#b1b1b1',
+        padding: '20px',
+      } }
+    >
+      <div className="col-mb-3">
+        <label htmlFor="name" className="form-label">
           Name
           <input
             type="name"
+            className="form-control form-group"
             id="name"
             placeholder="Name"
             value={ name }
@@ -30,11 +40,12 @@ function RegisteForm() {
           />
         </label>
       </div>
-      <div>
-        <label htmlFor="email">
+      <div className="col-mb-3">
+        <label htmlFor="email" className="form-label">
           Email
           <input
             type="email"
+            className="form-control form-group"
             id="email"
             placeholder="Email"
             value={ email }
@@ -42,12 +53,13 @@ function RegisteForm() {
           />
         </label>
       </div>
-      <div>
+      <div className="col-mb-3">
         <label htmlFor="password">
           Password
           <input
             type="password"
             id="password"
+            className="form-control form-group"
             placeholder="Password"
             value={ password }
             onChange={ ({ target }) => setPassword(target.value) }
@@ -55,24 +67,34 @@ function RegisteForm() {
         </label>
       </div>
 
-      { errorMenssage ? <h3>{errorMenssage}</h3> : null }
+      { errorMenssage ? <p>{errorMenssage}</p> : null }
 
-      <div>
+      <div className="d-grid gap-6 d-md-inline">
         <button
           disabled={ !email || !password || !name }
+          className="btn btn-info btn-inline"
           type="button"
+          style={ {
+            marginTop: '1rem',
+            marginRight: '1rem',
+          } }
           onClick={ () => onClick() }
         >
           SingUp
         </button>
       </div>
 
-      <div>
+      <div className="d-grid gap-6 d-md-inline">
         <Link to="/">
           <button
+            className="btn btn-danger btn-inline"
             type="button"
+            style={ {
+              marginTop: '1rem',
+              marginRight: '1rem',
+            } }
           >
-            Back
+            Goback
           </button>
         </Link>
       </div>
