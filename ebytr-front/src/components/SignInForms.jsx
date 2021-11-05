@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable react/no-multi-comp */
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
@@ -7,21 +7,29 @@ function SignInForms() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [successesLogIn, setSuccessesLogIn] = useState(false);
+  const [isValidLogin, setIsValidLogin] = useState(false);
 
   const ValidateLogin = async () => {
-    const data = { email, password };
-    const validation = await axios.post('http://localhost:4000/employees/login', data);
-    localStorage.setItem('token', validation.data.token);
-    setSuccessesLogIn(true);
-    return validation;
+    try {
+      const data = { email, password };
+      const validation = await axios.post('http://localhost:4000/employees/login', data);
+      localStorage.setItem('token', validation.data.token);
+      setSuccessesLogIn(true);
+      setIsValidLogin(false);
+      return validation;
+    } catch (err) {
+      setIsValidLogin(true);
+    }
   };
 
   return (
     <form
       style={ {
         border: '1px solid',
+        boxShadow: '0px 0px 10px 5px #f5f5f5',
         borderRadius: '5px',
         borderWidth: '2px',
+        backgroundColor: '#b1b1b1',
         padding: '20px',
       } }
     >
@@ -40,7 +48,7 @@ function SignInForms() {
       </div>
 
       <div className="col-mb-3">
-        <label htmlFor="password" className="form-label">
+        <label htmlFor="validationServer01" className="form-label">
           Password
           <input
             type="password"
@@ -51,8 +59,8 @@ function SignInForms() {
             onChange={ ({ target }) => setPassword(target.value) }
           />
         </label>
+        { isValidLogin && <p>Email or password wrong.</p> }
       </div>
-
       <div className="d-grid gap-6 d-md-inline mr-3">
         <button
           type="button"

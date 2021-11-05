@@ -20,6 +20,7 @@ function SignIn() {
           alignSelf: 'center',
         } }
       >
+        <h2>Sign In</h2>
         <SignInForms />
       </div>
     </div>

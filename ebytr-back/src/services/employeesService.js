@@ -20,7 +20,7 @@ const findEmployeeByEmail = async (email) => {
 };
 
 const registerEmployee = async (name, email, password) => {
-  const messageInvalid = { message: 'user name, email or password invalid' };
+  const messageInvalid = { message: 'User name, email or password invalid.' };
   const checkEmail = await employeesModel.findEmployeeByEmail(email);
   if (!name || !email || !password) return messageInvalid;
   if (checkEmail) return messageInvalid;

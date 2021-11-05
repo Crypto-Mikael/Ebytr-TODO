@@ -15,22 +15,27 @@ const getEmployeeById = async (req, res) => {
 };
 
 const loginToken = async (req, res) => {
-  const { email, password } = req.body;
+  try {
 
-  const employee = await employeesService.findEmployeeByEmail(email);
-  const passwordCheck = await bcrypt.compare(password, employee.password);
-  if (!passwordCheck) return res.status(404).json({ message: 'employee not found' });
-  if (employee.message) return res.status(404).json(employee);
-
-  const { _id, role } = employee;
-
-  const jwtConfig = {
-    expiresIn: '7d',
-    algorithm: 'HS256',
-  };
-
-  const token = jwt.sign({ _id, email, role }, secret, jwtConfig);
-  return res.status(200).json({ token });
+    const { email, password } = req.body;
+    
+    const employee = await employeesService.findEmployeeByEmail(email);
+    const passwordCheck = await bcrypt.compare(password, employee.password);
+    if (!passwordCheck) return res.status(404).json({ message: 'employee not found' });
+    if (employee.message) return res.status(404).json(employee);
+    
+    const { _id, role } = employee;
+    
+    const jwtConfig = {
+      expiresIn: '7d',
+      algorithm: 'HS256',
+    };
+    
+    const token = jwt.sign({ _id, email, role }, secret, jwtConfig);
+    return res.status(200).json({ token });
+  } catch (err) {
+    return res.status(400).send({ message: 'email or password invalid' })
+  }
 };
 
 const getEmployeeByToken = async (req, res) => {

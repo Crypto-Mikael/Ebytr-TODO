@@ -17,7 +17,16 @@ function RegisteForm() {
   };
 
   return (
-    <form>
+    <form
+      style={ {
+        border: '1px solid',
+        boxShadow: '0px 0px 10px 5px #f5f5f5',
+        borderRadius: '5px',
+        borderWidth: '2px',
+        backgroundColor: '#b1b1b1',
+        padding: '20px',
+      } }
+    >
       <div className="col-mb-3">
         <label htmlFor="name" className="form-label">
           Name
@@ -58,24 +67,32 @@ function RegisteForm() {
         </label>
       </div>
 
-      { errorMenssage ? <h3>{errorMenssage}</h3> : null }
+      { errorMenssage ? <p>{errorMenssage}</p> : null }
 
-      <div className="d-inline-mt gap-6 mt-2">
+      <div className="d-grid gap-6 d-md-inline">
         <button
           disabled={ !email || !password || !name }
           className="btn btn-info btn-inline"
           type="button"
+          style={ {
+            marginTop: '1rem',
+            marginRight: '1rem',
+          } }
           onClick={ () => onClick() }
         >
           SingUp
         </button>
       </div>
 
-      <div className="d-inline-mt gap-6">
+      <div className="d-grid gap-6 d-md-inline">
         <Link to="/">
           <button
             className="btn btn-danger btn-inline"
             type="button"
+            style={ {
+              marginTop: '1rem',
+              marginRight: '1rem',
+            } }
           >
             Goback
           </button>

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-function Task({ task, userInfo, setUpdateList, taskStatus }) {
+function Task({ task, userInfo, setUpdateList }) {
   const [isInEditMode, setIsInEditMode] = useState(false);
-  const [isStatusTask, setIsStatusTask] = useState(taskStatus);
+  const [isStatusTask, setIsStatusTask] = useState(task.status);
 
   const removeTask = async (id) => {
     const { email } = userInfo;
@@ -25,10 +25,10 @@ function Task({ task, userInfo, setUpdateList, taskStatus }) {
   };
 
   const changeStatus = async () => {
-    const { id, text } = task;
     if (isStatusTask === 'pendente') setIsStatusTask('andamento');
     if (isStatusTask === 'andamento') setIsStatusTask('pronto');
     if (isStatusTask === 'pronto') setIsStatusTask('pendente');
+    const { id, text } = task;
     const data = { text, status: isStatusTask };
     setUpdateList(true);
     await axios.put(`http://localhost:4000/employees/editTask/${id}`, data);
@@ -91,7 +91,7 @@ function Task({ task, userInfo, setUpdateList, taskStatus }) {
         } }
       >
         { isInEditMode ? renderEditView(task.text) : renderDefautView(task.text) }
-        { task.status === 'pronto' && renderDeleteButton()}
+        { isStatusTask === 'pronto' && renderDeleteButton()}
       </div>
       <div
         className="card-body"
@@ -112,7 +112,7 @@ function Task({ task, userInfo, setUpdateList, taskStatus }) {
         <h5
           className="card-title"
         >
-          {task.status}
+          {isStatusTask}
         </h5>
       </div>
     </div>
@@ -120,7 +120,6 @@ function Task({ task, userInfo, setUpdateList, taskStatus }) {
 }
 
 Task.propTypes = {
-  taskStatus: PropTypes.string.isRequired,
   task: PropTypes.objectOf(String).isRequired,
   setUpdateList: PropTypes.func.isRequired,
   userInfo: PropTypes.objectOf(String).isRequired,
