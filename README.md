@@ -42,7 +42,7 @@
 
 ```bash
 # Clone este repositório
-$ git clone git@github.com:Gabriel-sys-hub/Ebytr.git
+$ git clone git@github.com:Crypto-Mikael/Ebytr-TODO.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd ebtr-back
@@ -58,7 +58,7 @@ $ npm run dev
 
 ```bash
 # Clone este repositório
-$ git clone git@github.com:Gabriel-sys-hub/Ebytr.git
+$ git clone git@github.com:Crypto-Mikael/Ebytr-TODO.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd ebtr-back
